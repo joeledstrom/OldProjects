@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "getLine(std::string&amp;, char**, char*):MD5.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "(string &amp;)(null)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -1,0 +1,24 @@
+attribute vec4 position;
+attribute vec3 normal;
+attribute vec2 texCoord;
+
+uniform mat4 mMatrix;
+uniform mat4 vMatrix;
+uniform mat4 pMatrix;
+
+
+varying vec3 vNormal;
+varying vec2 vTexCoord;
+
+
+									  
+void main(void) {
+    mat4 mvMatrix = vMatrix * mMatrix;
+
+    vTexCoord = texCoord;
+    vNormal = vec3(mvMatrix * vec4(normal, 0.0));  // ignore translations
+    // TODO: vNormal also needs to be affected by skinMat() !!!
+    
+	gl_Position = pMatrix * mvMatrix * position; 
+	 
+}

@@ -1,0 +1,20 @@
+uniform   vec2 offset;										
+attribute vec4 position;
+attribute vec2 texCoord;
+attribute vec3 normal;
+
+varying vec2 vTexCoord;
+varying vec3 vNormal;
+
+uniform mat4 mvMatrix;
+uniform mat4 pMatrix;
+
+
+									  
+void main(void) {
+    vTexCoord = texCoord;
+	vNormal = vec3(mvMatrix * vec4(normal, 0.0));  // ignore translations
+    
+	gl_Position = pMatrix * mvMatrix * position; 
+	//gl_Position = position + vec4(offset.x, offset.y, 0, 0);  
+}

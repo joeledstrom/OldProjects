@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Buddy" representedClassName="Buddy" syncable="YES">
+        <attribute name="active" attributeType="Boolean" indexed="YES" syncable="YES"/>
+        <attribute name="jid" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="picture" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="pictureHash" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subscription" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Message" representedClassName="Message" syncable="YES">
+        <attribute name="date" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="fromUser" attributeType="Boolean" syncable="YES"/>
+        <attribute name="imapUID" optional="YES" attributeType="Integer 64" indexed="YES" syncable="YES"/>
+        <attribute name="text" attributeType="String" syncable="YES"/>
+        <relationship name="buddy" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Buddy" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Buddy" positionX="-155" positionY="45" width="128" height="135"/>
+        <element name="Message" positionX="25" positionY="47" width="128" height="120"/>
+    </elements>
+</model>

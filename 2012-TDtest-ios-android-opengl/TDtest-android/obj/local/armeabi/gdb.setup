@@ -1,0 +1,4 @@
+set solib-search-path ./obj/local/armeabi
+directory /Users/joel/Android/android-ndk/platforms/android-8/arch-arm/usr/include /Users/joel/Android/android-ndk/sources/cxx-stl/gnu-libstdc++ /Users/joel/Dropbox/TDtest/libwebp/src gdt /Users/joel/Dropbox/TDtest/cml-1_0_3 /Users/joel/Android/android-ndk/sources/cxx-stl/gnu-libstdc++/include /Users/joel/Android/android-ndk/sources/cxx-stl/gnu-libstdc++/libs/armeabi/include jni jni/libwebp/src
+file ./obj/local/armeabi/app_process
+target remote :5039

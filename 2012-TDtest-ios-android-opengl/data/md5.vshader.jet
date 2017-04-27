@@ -1,0 +1,34 @@
+attribute vec4 position;
+attribute vec3 normal;
+attribute vec4 jointIndex;
+attribute vec4 jointWeight;
+attribute vec2 texCoord;
+
+uniform mat4 mMatrix;
+uniform mat4 vMatrix;
+uniform mat4 pMatrix;
+
+uniform mat4 joints[36];
+
+
+varying vec3 vNormal;
+varying vec2 vTexCoord;
+
+mat4 skinMat() {
+	mat4 result = jointWeight.x * joints[int(jointIndex.x)];
+	result = result + jointWeight.y * joints[int(jointIndex.y)];
+	result = result + jointWeight.z * joints[int(jointIndex.z)];
+	result = result + jointWeight.w * joints[int(jointIndex.w)];
+	return result;
+}
+									  
+void main(void) {
+    mat4 mvMatrix = vMatrix * mMatrix;
+
+    vTexCoord = texCoord;
+    vNormal = vec3(mvMatrix * vec4(normal, 0.0));  // ignore translations
+    // TODO: vNormal also needs to be affected by skinMat() !!!
+    
+	gl_Position = pMatrix * mvMatrix * skinMat() * position; 
+	 
+}

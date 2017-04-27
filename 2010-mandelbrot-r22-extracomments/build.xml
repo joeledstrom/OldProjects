@@ -1,0 +1,27 @@
+<project name="mandelbrot" default="jar">
+  
+  <target name="compile">
+    <mkdir dir="generated/classes" />
+    <javac srcdir="src" destdir="generated/classes" />
+  </target>
+  
+  <target name="jar" depends="compile">
+    <jar destfile="generated/mandelbrot.jar" basedir="generated/classes" includes="**/*.class">
+        <manifest>
+            <attribute name="Main-Class" value="foo.mandelbrot.Main" /> 
+        </manifest>
+    </jar>
+  </target>
+  
+  <target name="clean">
+    <delete dir="generated" />
+  </target>
+  
+  <target name="run" depends="jar">
+    <java classpath="generated/mandelbrot.jar" classname="foo.mandelbrot.Main" fork="true">
+      <jvmarg value="-Dcom.sun.management.jmxremote=true" />
+      <!-- <jvmarg value="-agentlib:Shark" /> -->
+    </java>
+  </target>
+  
+</project>
